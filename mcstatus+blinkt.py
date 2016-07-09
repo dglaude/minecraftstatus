@@ -22,6 +22,32 @@ import logging
 import socket
 import struct
 
+from blinkt import set_pixel, show
+from time import sleep
+
+def blink():
+    for i in range(5):
+        set_pixel(7, 255, 0, 0)
+        show()
+        sleep(1)
+        set_pixel(7, 0, 0, 0)
+        show()
+        sleep(1)
+
+def show_n(n):
+    for i in range(8):
+        set_pixel(i, 0, 0, 0)
+    show()
+    sleep(1)
+    for i in range(8):
+        if n > i:
+            set_pixel(i, 0, 0, 255)
+        else:
+            set_pixel(i, 0, 0, 0)
+        show()
+        sleep(1)
+    sleep(1)
+
 DEFAULT_PORT = 25565
 TIMEOUT_SEC = 5.0
 
@@ -160,12 +186,17 @@ if __name__ == '__main__':
 
   logging.info('querying %s:%d', args.host, args.port)
 
-  server = McServer(args.host, port=args.port)
-  server.Update()
-  if server.available:
-    logging.info(
-        'available, %d online: %s',
-        server.num_players_online,
-        ', '.join(server.player_names_sample))
-  else:
-    logging.info('unavailable')
+  while True:
+    server = McServer(args.host, port=args.port)
+    server.Update()
+    if server.available:
+      logging.info(
+          'available, %d online: %s',
+          server.num_players_online,
+          ', '.join(server.player_names_sample))
+      show_n(server.num_players_online)
+      sleep(5)
+    else:
+      logging.info('unavailable')
+      blink()
+
