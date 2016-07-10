@@ -35,6 +35,15 @@ Here is the display logic:
 - Blinking Blue mean server OK and number of blink is the number of user connected
 - Blinking constantly Red mean problem to connect to the server
 
+### mc_blinkt_fade.py
+
+Even better than mc_blinkt_fade.py, this version use fade-in fade-out rather than blinking. It make it even more ambiant indicator and you will notice if the program stop for some reason. Still minded for inclusion into a FADO lamp from IKEA.
+
+Here is the display logic:
+- Slow Fade in and out of Green mean server OK but no-one connected
+- Each fast Fade in and out of Blue between Green indicate the number of user connected
+- Slow Fade in and out of Red mean problem to connect to the server
+
 ### main.py
 
 This is a copy of the core part of mcstatus.py.
@@ -45,6 +54,8 @@ It can be used to build other version that use Blinkt! or else.
 Run `mc_blinkt_count.py server_name_or_ip` on a Pi with connectivity to the minecraft server 
 
 Run `mc_blinkt_fado.py server_name_or_ip` on a Pi with connectivity to the minecraft server 
+
+Run `mc_blinkt_fade.py server_name_or_ip` on a Pi with connectivity to the minecraft server 
 
 ## Features
 
