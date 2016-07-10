@@ -53,7 +53,7 @@ def show_n(n):
 logging.basicConfig(
     format='%(levelname)s %(asctime)s %(filename)s:%(lineno)s: %(message)s',
     level=logging.DEBUG)
-logging.getLogger().setLevel(logging.CRITICAL)
+#logging.getLogger().setLevel(logging.CRITICAL)
 
 summary_line, _, main_doc = __doc__.partition('\n\n')
 parser = argparse.ArgumentParser(
