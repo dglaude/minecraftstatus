@@ -5,11 +5,6 @@ Example:
     $ %(prog)s host [port]
     available, 3 online: mf, dignity, viking
 
-    or
-
-    >>> McServer('my.mcserver.com').Update().player_names_sample
-    frozenset(['mf', 'dignity', 'viking'])
-
 Based on:
     https://gist.github.com/barneygale/1209061
 Protocol reference:
@@ -17,10 +12,7 @@ Protocol reference:
 """
 
 import argparse
-import json
 import logging
-import socket
-import struct
 
 from mcstatus import McServer 
 
