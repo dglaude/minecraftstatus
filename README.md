@@ -12,32 +12,14 @@ Check the status of a Minecraft server, including list of online players.
 - USB cable
 - MicroSD card
 - Mac mini running the minecraft server
-- (Optional) FADO lamp from IKEA
 
 ## Software
 
 - [Pimoroni Blinkt Python library](https://github.com/pimoroni/blinkt)
 
-## Variant
-
-### mcstatus+blinkt.py
-
-This indicate a blue count of user connected to the Minecraft server (from 1 to 8) and blink red when in error. It use the Men in Space logic
-
-### mcstatus_fado_blinkt.py
-
-This is an ambiant display where all LEDs from the Blinkt! show the same color. You are supposed to put the PiZero and Blinkt! into a FADO lamp from IKEA.
-
-Here is the display logic:
-- Constant Green mean server OK but no-one connected
-- Blinking Blue mean server OK and number of blink is the number of user connected
-- Blinking constantly Red mean problem to connect to the server
-
 ## Usage
 
 Run `mcstatus+blinkt.py server_name_or_ip` on a Pi terminal with connectivity to the minecraft server 
-
-Run `mcstatus_fado_blinkt.py server_name_or_ip` on a Pi terminal with connectivity to the minecraft server 
 
 ## Features
 
