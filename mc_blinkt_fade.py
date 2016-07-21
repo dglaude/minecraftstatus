@@ -32,30 +32,6 @@ DEFAULT_PORT = 25565
 from blinkt import set_pixel, show, set_brightness
 from time import sleep
 
-
-def blink():
-    for i in range(5):
-        set_pixel(7, 255, 0, 0)
-        show()
-        sleep(1)
-        set_pixel(7, 0, 0, 0)
-        show()
-        sleep(1)
-
-def show_n(n):
-    for i in range(8):
-        set_pixel(i, 0, 0, 0)
-    show()
-    sleep(1)
-    for i in range(8):
-        if n > i:
-            set_pixel(i, 0, 0, 255)
-        else:
-            set_pixel(i, 0, 0, 0)
-        show()
-        sleep(1)
-    sleep(1)
-
 def FadeInOut(delay):
   for b in range(31):
     set_brightness(b/31.0)
@@ -75,11 +51,6 @@ def fade_count(n, r, g, b, fast=None):
         for i in range(8):
             set_pixel(i, r, g, b, 0)
         FadeInOut(delay)
-
-def blinkt_all(r,g,b):
-    for i in range (8):
-        set_pixel(i, r, g, b)
-    show()
 
 logging.basicConfig(
     format='%(levelname)s %(asctime)s %(filename)s:%(lineno)s: %(message)s',
